@@ -1,9 +1,9 @@
 import streamlit as st
 from config import pagesetup as ps, sessionstates as ss
 
-# 0. Page Config
+# 0. Page Config and global Font
 ps.get_st_page_config()
-
+ps.get_page_font()
 # 1. Page Title
 ps.get_deans_assistant_title(0)
 
@@ -23,6 +23,3 @@ with link_container:
     with link_columns[1]:
         ps.get_page_link(2)
         ps.get_page_link(4)
-
-# 5. Set global Font
-ps.get_page_font()
