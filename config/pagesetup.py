@@ -45,7 +45,7 @@ def get_title_no_divider(varPageNumber):
         css_styles=["""
             {
                 border: 1px solid rgba(115, 0, 0, 1);
-                background-color: rgba(115, 0, 0, .7);
+                background-color: rgba(115, 0, 0, .75);
                
                 
             }
