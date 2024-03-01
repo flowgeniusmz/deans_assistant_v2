@@ -48,10 +48,14 @@ def get_title_no_divider(varPageNumber):
                 background-color: 1px solid rgba(255, 255, 0, 1);
                 border-radius: 0.2rem;
                 padding: calc(0.2em - 10px);
-                padding-right:1em;
-                padding-left: 1.5em;
+                padding-right:1.5em;
             }
-        """]
+            """,
+            """
+            .stMarkdown {
+                    padding-right: 1.5em;
+                    padding-left: 1.5em;
+                """]
         ):
             if varPageNumber == 0:
                 varTitle = st.secrets.streamlit.config_home_title
