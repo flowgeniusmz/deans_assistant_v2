@@ -62,3 +62,5 @@ def get_initial_session_states():
         st.session_state.new_row_files1 = {"Id": None, "Object": None, "Bytes": None, "Created At": None, "Name": None, "Purpose": None }
     if "new_row_tools" not in st.session_state:
         st.session_state.new_row_tools = {"Type": None}
+    if "update_instructions_toggle_button" not in st.session_state:
+        st.session_state.update_instructions_toggle_button = "False"

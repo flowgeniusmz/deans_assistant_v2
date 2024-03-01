@@ -1,6 +1,6 @@
 import streamlit as st
 from config import pagesetup as ps
-from app import app_chat_history, app_assistant_files, app_file_download, app_assistant_tools, app_message_log, app_add_assistant_file
+from app import app_chat_history, app_assistant_files, app_file_download, app_assistant_tools, app_message_log, app_add_assistant_file, app_update_instructions
 
 # 0. Page Config
 ps.get_st_page_config()
@@ -48,9 +48,9 @@ with details_container:
     )
 
 # 5. Tabs Container
-tab_names = ['Assistant Files', 'Tools', 'File Download', 'Message Log', 'Add Assistant File', 'Chat History']
+tab_names = ['Assistant Files', 'Tools', 'File Download', 'Message Log', 'Add Assistant File', 'Chat History', 'Update Assistant Instructions']
 with tabs_container:
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tabs=tab_names)
+    tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs(tabs=tab_names)
     with tab1:
         ps.set_gray_header("Assistant Files")
         exp_about_1 = st.expander(label="About", expanded=False)
@@ -88,4 +88,10 @@ with tabs_container:
             st.markdown("View your chat history")
         st.divider()
         app_chat_history.chat_history_display()
+    with tab7:
+        ps.set_gray_header("Update Assistant Instructions")
+        exp_about_7 = st.expander(label="About", expanded=False)
+        with exp_about_7:
+            st.markdown("Change the assistant instructions.")
+        app_update_instructions.update_assistant_instructions()
         
