@@ -67,7 +67,7 @@ def get_overview(varPageNumber):
         key="container_with_border",
         css_styles=["""
             {
-                border: 1px solid rgba(11, 140, 71, 0.7);
+                border: 1px solid rgba(115, 0, 0, 1);
                 background-color: white;
                 border-radius: 0.5rem;
                 padding: calc(0.2em - 10px);
