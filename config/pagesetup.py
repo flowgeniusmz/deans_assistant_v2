@@ -85,7 +85,7 @@ def get_overview(varPageNumber):
         css_styles=["""
             {
                 border: 1px solid rgba(115, 0, 0, 1);
-                background-color: white;
+                background-color: 1px solid rgba(115, 0, 0, 1);
                 border-radius: 0.5rem;
                 padding: calc(0.2em - 10px);
                 padding-right:1.5em;
