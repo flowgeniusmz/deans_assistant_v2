@@ -63,34 +63,51 @@ def get_title_no_divider(varPageNumber):
     
 # 3. Get Overview
 def get_overview(varPageNumber):
-    if varPageNumber == 0:
-        varOverviewHeader = st.secrets.streamlit.config_home_overview_header
-        varPageDescription = st.secrets.streamlit.config_home_description
-        varSubtitle = st.secrets.streamlit.config_home_subtitle
-    elif varPageNumber == 1:
-        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_1
-        varPageDescription = st.secrets.streamlit.config_page_description_1
-        varSubtitle = st.secrets.streamlit.config_page_subtitle_1
-    elif varPageNumber == 2:
-        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_2
-        varPageDescription = st.secrets.streamlit.config_page_description_2
-        varSubtitle = st.secrets.streamlit.config_page_subtitle_2
-    elif varPageNumber == 3:
-        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_3
-        varPageDescription = st.secrets.streamlit.config_page_description_3
-        varSubtitle = st.secrets.streamlit.config_page_subtitle_3
-    elif varPageNumber == 4:
-        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_4
-        varPageDescription = st.secrets.streamlit.config_page_description_4
-        varSubtitle = st.secrets.streamlit.config_page_subtitle_4
-    else:
-        varOverviewHeader = st.secrets.streamlit.config_home_overview_header
-        varPageDescription = st.secrets.streamlit.config_home_description
-        varSubtitle = st.secrets.streamlit.config_home_subtitle
-
-    st.markdown(f"""<span style="font-weight: bold; color:#4A90E2; font-size:1.3em;">{varOverviewHeader}</span>""", unsafe_allow_html=True)    
-    st.markdown(f"**{varSubtitle}** {varPageDescription.lower()}")
-    st.divider()
+    with stylable_container(
+        key="container_with_border",
+        css_styles=["""
+            {
+                border: 1px solid rgba(11, 140, 71, 0.7);
+                background-color: white;
+                border-radius: 0.5rem;
+                padding: calc(0.2em - 10px);
+                padding-right:1.5em;
+            }
+            """,
+            """
+            .stMarkdown {
+                    padding-right: 1.5em;
+                    padding-left: 1.5em;
+                """]
+        ):
+            if varPageNumber == 0:
+                varOverviewHeader = st.secrets.streamlit.config_home_overview_header
+                varPageDescription = st.secrets.streamlit.config_home_description
+                varSubtitle = st.secrets.streamlit.config_home_subtitle
+            elif varPageNumber == 1:
+                varOverviewHeader = st.secrets.streamlit.config_page_overview_header_1
+                varPageDescription = st.secrets.streamlit.config_page_description_1
+                varSubtitle = st.secrets.streamlit.config_page_subtitle_1
+            elif varPageNumber == 2:
+                varOverviewHeader = st.secrets.streamlit.config_page_overview_header_2
+                varPageDescription = st.secrets.streamlit.config_page_description_2
+                varSubtitle = st.secrets.streamlit.config_page_subtitle_2
+            elif varPageNumber == 3:
+                varOverviewHeader = st.secrets.streamlit.config_page_overview_header_3
+                varPageDescription = st.secrets.streamlit.config_page_description_3
+                varSubtitle = st.secrets.streamlit.config_page_subtitle_3
+            elif varPageNumber == 4:
+                varOverviewHeader = st.secrets.streamlit.config_page_overview_header_4
+                varPageDescription = st.secrets.streamlit.config_page_description_4
+                varSubtitle = st.secrets.streamlit.config_page_subtitle_4
+            else:
+                varOverviewHeader = st.secrets.streamlit.config_home_overview_header
+                varPageDescription = st.secrets.streamlit.config_home_description
+                varSubtitle = st.secrets.streamlit.config_home_subtitle
+        
+            st.markdown(f"""<span style="font-weight: bold; color:#4A90E2; font-size:1.3em;">{varOverviewHeader}</span>""", unsafe_allow_html=True)    
+            st.markdown(f"**{varSubtitle}** {varPageDescription.lower()}")
+            st.divider()
 
 # 4. Set Headers
 def get_blue_header(varText):
