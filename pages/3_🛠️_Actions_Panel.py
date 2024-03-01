@@ -9,3 +9,10 @@ ps.get_deans_assistant_title(3)
 
 # 2. Page Overview
 ps.get_overview(3)
+
+# 3. Page Warning
+
+st.info(
+    body="**IN PROGRESS: Actions Panel In Development:** The **Actions Panel** is currently under construction and unavailable. More information will be posted as it is available!",
+            icon="⚠️"
+)
