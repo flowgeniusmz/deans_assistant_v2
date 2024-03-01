@@ -52,7 +52,7 @@ def get_title_no_divider(varPageNumber):
             """,
             """
             .stMarkdown {
-                    padding-right: .5em;
+                    padding-right: .2em;
                     padding-left: .5em;
                 """]
         ):
