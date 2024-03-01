@@ -52,8 +52,8 @@ def get_title_no_divider(varPageNumber):
             """,
             """
             .stMarkdown {
-                    padding-right: 1.5em;
-                    padding-left: 1.5em;
+                    padding-right: .5em;
+                    padding-left: .5em;
                 """]
         ):
             if varPageNumber == 0:
