@@ -1,6 +1,6 @@
 import streamlit as st
 from config import pagesetup as ps
-from app import app_chat_history
+from app import app_chat_history, app_assistant_files, app_file_download, app_assistant_tools, app_message_log, app_add_assistant_file
 
 # 0. Page Config
 ps.get_st_page_config()
@@ -48,7 +48,7 @@ with details_container:
     )
 
 # 5. Tabs Container
-tab_names = ['Files', 'Tools', 'File Download', 'Message Log', 'Add Assistant File', 'Chat History']
+tab_names = ['Assistant Files', 'Tools', 'File Download', 'Message Log', 'Add Assistant File', 'Chat History']
 with tabs_container:
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(tabs=tab_names)
     with tab1:
@@ -56,26 +56,31 @@ with tabs_container:
         exp_about_1 = st.expander(label="About", expanded=False)
         with exp_about_1:
             st.markdown("View assistant files. Not downloadable.")
+        app_assistant_files.get_assistant_file_dataframe()
     with tab2:
         ps.set_gray_header("Tool List")
         exp_about_2 = st.expander(label="About", expanded=False)
         with exp_about_2:
             st.markdown("View assistant tools.")
+        app_assistant_tools.get_assistant_tools_dataframe()
     with tab3:
         ps.set_gray_header("Downloadable Files")
         exp_about_3 = st.expander(label="About", expanded=False)
         with exp_about_3:
             st.markdown("View downloadable files.")
+        app_file_download.get_file_download_dataframe()
     with tab4:
         ps.set_gray_header("Message Log")
         exp_about_4 = st.expander(label="About", expanded=False)
         with exp_about_4:
             st.markdown("View message log.")
+        app_message_log.get_message_log_dataframe()
     with tab5:
         ps.set_gray_header("Add Assistant File")
         exp_about_5 = st.expander(label="About", expanded=False)
         with exp_about_5:
             st.markdown("Add assistant file")
+        app_add_assistant_file.add_assistant_file()
     with tab6:
         ps.set_gray_header("Chat History")
         exp_about_6 = st.expander(label="About", expanded=False)
