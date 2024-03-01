@@ -60,6 +60,7 @@ if prompt := st.chat_input("Enter your question (Ex: A student has their third t
         role=prompt_role,
         content=prompt_content
     )
+    print(new_message)
 
 # 9. Create New Run
     st.session_state.run = client.beta.threads.runs.create(
@@ -73,6 +74,8 @@ if prompt := st.chat_input("Enter your question (Ex: A student has their third t
     st.session_state.messages.append(prompt_message)
     append_to_log.append_message_to_log(prompt_message)
     append_to_dataframe_messages.append_message_to_message_dataframe(prompt_message)
+    print(prompt_message)
+    print(st.session_state.dataframe_messages)
 
 # 11. Check run status loop until run.status = complete
     while st.session_state.run.status != "completed":
@@ -100,6 +103,7 @@ if prompt := st.chat_input("Enter your question (Ex: A student has their third t
     thread_messages = client.beta.threads.messages.list(
         thread_id=st.session_state.thread_id
     )
+    print(thread_messages)
 
 # 15. Retrieve most recent assistant message by looping through each message in thread_messages and looking for the current run_id and role = "assistant"
     for thread_message in thread_messages:
@@ -112,22 +116,29 @@ if prompt := st.chat_input("Enter your question (Ex: A student has their third t
             thread_message_unix = thread_message.created_at
             thread_message_datetime = datetime.utcfromtimestamp(thread_message_unix)
             thread_message_text = thread_message.content[0].text
+            print(thread_message_text)
             thread_message_content = thread_message_text.value
+            print(thread_message_content)
             thread_message_annotations = thread_message_text.annotations
-
+            print(thread_message_annotations)
 # 17. Get Citations from annotations
             citations = []
             thread_message_content_replace = thread_message_content
+            print(thread_message_content_replace)
             for index, annotation in enumerate(thread_message_annotations):
                 thread_message_content_replace = thread_message_content_replace.replace(annotation.text, f' [{index}]')
+                print(thread_message_content_replace)
                 if (file_citation:=getattr(annotation, 'file_citation', None)):
                     cited_file = client.files.retrieve(file_citation.file_id)
                     citations.append(f'[{index}] {file_citation.quote} from {cited_file.filename}')
+                    print(cited_file)
                 elif (file_path := getattr(annotation, 'file_path', None)):
                     cited_file = client.files.retrieve(file_path.file_id)
                     citations.append(f'[{index}] Click <here> to download {cited_file.filename}')
+                    print(cited_file)
                     # Note: File download functionality not implemented above for brevity
-            thread_message_content_replace += '\n' + '\n'.join(citations)
+            thread_message_content_replace += "\n\nCitations:\n" + "\n".join(citations)
+            print(thread_message_content_replace)
 
 # 18. Add Message to St.SessionState Messages
             response_message = {"role": thread_message_role, "content": thread_message_content_replace, "messageid": thread_message_id, "runid": thread_message_run_id, "createdatunix": thread_message_unix, "createdatdatetime": thread_message_datetime}
