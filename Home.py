@@ -1,7 +1,6 @@
 import streamlit as st
 from config import pagesetup as ps, sessionstates as ss
 
-
 # 0. Page Config
 ps.get_st_page_config()
 
