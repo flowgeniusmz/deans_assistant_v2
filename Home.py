@@ -29,4 +29,4 @@ with link_container:
         ps.get_page_link(4)
 
 # 5. Set global Font
-ps.get_page_font()
+#ps.get_page_font()
