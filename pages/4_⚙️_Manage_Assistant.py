@@ -4,7 +4,7 @@ from app import app_chat_history, app_assistant_files, app_file_download, app_as
 
 # 0. Page Config
 ps.get_st_page_config()
-ps.get_page_font()
+ps.get_global_page_font()
 
 # 1. Page Title
 ps.get_deans_assistant_title(4)
