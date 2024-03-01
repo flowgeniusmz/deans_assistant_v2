@@ -47,7 +47,7 @@ def get_title_no_divider(varPageNumber):
                 border: 1px solid rgba(115, 0, 0, 1);
                 background-color: rgba(115, 0, 0, .5);
                
-                padding: calc(0.2em - 10px);
+                
             }
             """,
             """
