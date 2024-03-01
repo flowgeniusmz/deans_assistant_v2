@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Font set- imported in a style.css file initially
-def get_page_font():
+def get_global_page_font():
     with open( "config/style.css" ) as css:
         st.markdown( f'<style>{css.read()}</style>' , unsafe_allow_html= True)
 
