@@ -7,7 +7,7 @@ ps.get_st_page_config()
 ps.get_global_page_font()
 
 # 1. Page Title
-ps.get_deans_assistant_title(2)
+ps.get_sales_assistant_title(2)
 
 # 2. Page Overview
 ps.get_overview(2)
