@@ -19,7 +19,7 @@ if "start_chat" not in st.session_state:
 
 
 # 1. Page Title
-ps.get_deans_assistant_title(1)
+ps.get_sales_assistant_title(1)
 
 # 2. Page Overview
 ps.get_overview(1)
