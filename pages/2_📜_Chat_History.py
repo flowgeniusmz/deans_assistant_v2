@@ -4,7 +4,7 @@ from app import app_chat_history as appchat
 
 # 0. Page Config
 ps.get_st_page_config()
-ps.get_global_page_font()
+#ps.get_global_page_font()
 
 # 1. Page Title
 ps.get_sales_assistant_title(2)
