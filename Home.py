@@ -3,7 +3,7 @@ from config import pagesetup as ps, sessionstates as ss
 
 # 0. Page Config and global Font
 ps.get_st_page_config()
-ps.get_global_page_font()
+#ps.get_global_page_font()
 
 # 1. Page Title
 ps.get_sales_assistant_title(0)
