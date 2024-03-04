@@ -40,6 +40,28 @@ def get_title(varPageNumber):
     st.divider()
 
 def get_title_no_divider(varPageNumber):
+        
+    if varPageNumber == 0:
+        varTitle = st.secrets.streamlit.config_home_title
+        varSubtitle = st.secrets.streamlit.config_home_subtitle
+    elif varPageNumber == 1:
+        varTitle = st.secrets.streamlit.config_page_title_1
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_1
+    elif varPageNumber == 2:
+        varTitle = st.secrets.streamlit.config_page_title_2
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_2
+    elif varPageNumber == 3:
+        varTitle = st.secrets.streamlit.config_page_title_3
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_3
+    elif varPageNumber == 4:
+        varTitle = st.secrets.streamlit.config_page_title_4
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_4
+    else:
+        varTitle = st.secrets.streamlit.config_home_title
+        varSubtitle = st.secrets.streamlit.config_home_subtitle
+
+    st.markdown(f"""<span style="font-weight: bold; font-size: 2em; color:#4A90E2;">{varTitle} </span> <span style="font-weight: bold; color:#333333; font-size:1.3em;">{varSubtitle}</span>""", unsafe_allow_html=True)
+def get_title_no_divider_styled(varPageNumber):
     with stylable_container(
         key="container_with_border",
         css_styles=["""
@@ -76,9 +98,38 @@ def get_title_no_divider(varPageNumber):
                 varSubtitle = st.secrets.streamlit.config_home_subtitle
         
             st.markdown(f"""<span style="font-weight: bold; font-size: 2em; color:#4A90E2;">{varTitle} </span> <span style="font-weight: bold; color:#333333; font-size:1.3em;">{varSubtitle}</span>""", unsafe_allow_html=True)
-            
+                        
 # 3. Get Overview
 def get_overview(varPageNumber):
+    if varPageNumber == 0:
+        varOverviewHeader = st.secrets.streamlit.config_home_overview_header
+        varPageDescription = st.secrets.streamlit.config_home_description
+        varSubtitle = st.secrets.streamlit.config_home_subtitle
+    elif varPageNumber == 1:
+        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_1
+        varPageDescription = st.secrets.streamlit.config_page_description_1
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_1
+    elif varPageNumber == 2:
+        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_2
+        varPageDescription = st.secrets.streamlit.config_page_description_2
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_2
+    elif varPageNumber == 3:
+        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_3
+        varPageDescription = st.secrets.streamlit.config_page_description_3
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_3
+    elif varPageNumber == 4:
+        varOverviewHeader = st.secrets.streamlit.config_page_overview_header_4
+        varPageDescription = st.secrets.streamlit.config_page_description_4
+        varSubtitle = st.secrets.streamlit.config_page_subtitle_4
+    else:
+        varOverviewHeader = st.secrets.streamlit.config_home_overview_header
+        varPageDescription = st.secrets.streamlit.config_home_description
+        varSubtitle = st.secrets.streamlit.config_home_subtitle
+
+    st.markdown(f"""<span style="font-weight: bold; color:#4A90E2; font-size:1.3em;">{varOverviewHeader}</span>""", unsafe_allow_html=True)    
+    st.markdown(f"**{varSubtitle}** {varPageDescription.lower()}")
+    st.divider()
+def get_overview_styled(varPageNumber):
     with stylable_container(
         key="container_with_border",
         css_styles=["""
