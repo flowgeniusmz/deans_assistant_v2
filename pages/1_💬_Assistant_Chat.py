@@ -8,7 +8,7 @@ import base64
 
 # 0. Page Config
 ps.get_st_page_config()
-ps.get_global_page_font()
+#ps.get_global_page_font()
 
 # 0. Set Instances
 client = OpenAI(api_key=st.secrets.openai.api_key)
