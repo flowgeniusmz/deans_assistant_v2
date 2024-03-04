@@ -133,7 +133,7 @@ def set_gray_header(varText):
     st.markdown(f"""<span style="font-weight: bold; color:#333333; font-size:1.3em;">{varText}</span>""", unsafe_allow_html=True)
 
 # 5. Set Deans Assistant Title
-def get_deans_assistant_title(varPageNumber):
+def get_sales_assistant_title(varPageNumber):
     title_container = st.container()
     with title_container:
         title_columns = st.columns(2)
